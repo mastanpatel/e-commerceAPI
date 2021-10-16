@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
@@ -11,6 +11,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using e_commerceAPI.Data;
 
 namespace e_commerceAPI
 {
@@ -28,6 +30,9 @@ namespace e_commerceAPI
         {
 
             services.AddControllers();
+
+            services.AddDbContext<ProductContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("ProductContext")));
             //services.AddSwaggerGen(c =>
             //{
             //    c.SwaggerDoc("v1", new OpenApiInfo { Title = "e_commerceAPI", Version = "v1" });
