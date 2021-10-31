@@ -22,6 +22,12 @@ namespace e_commerceAPI.Controllers
         }
 
         // GET: api/Products
+        //[HttpGet]
+        //public async Task<ActionResult<IEnumerable<Products>>> GetProducts()
+        //{
+        //    return await _context.Products.ToListAsync();
+        //}
+
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Products>>> GetProducts()
         {
